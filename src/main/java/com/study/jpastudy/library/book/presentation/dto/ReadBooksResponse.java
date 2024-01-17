@@ -16,6 +16,7 @@ public record ReadBooksResponse(List<BookResponse> books) {
 
     public record BookResponse(Long id,
                                String ISBN,
+                               String title,
                                String author,
                                String category) {
 
@@ -23,6 +24,7 @@ public record ReadBooksResponse(List<BookResponse> books) {
             return new BookResponse(
                     bookDto.id(),
                     bookDto.ISBN(),
+                    bookDto.title(),
                     bookDto.author(),
                     bookDto.category()
             );

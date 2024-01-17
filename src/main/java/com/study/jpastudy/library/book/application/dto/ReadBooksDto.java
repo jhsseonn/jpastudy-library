@@ -17,12 +17,13 @@ public record ReadBooksDto(List<BookDto> books) {
     public record BookDto(
             Long id,
             String ISBN,
+            String title,
             String author,
             String category
     ) {
 
         public static BookDto from(final Book book) {
-            return new BookDto(book.getId(), book.getISBN(), book.getAuthor(), book.getCategory()
+            return new BookDto(book.getId(), book.getISBN(), book.getTitle(), book.getAuthor(), book.getCategory()
                                                                                    .getName());
         }
     }

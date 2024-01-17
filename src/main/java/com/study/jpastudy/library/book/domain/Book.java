@@ -28,6 +28,9 @@ public class Book {
     @Column(nullable = false, length = 20)
     private String ISBN;
 
+    @Column(nullable = false)
+    private String title;
+
     @Column(nullable = false, length = 50)
     private String author;
 
@@ -42,9 +45,11 @@ public class Book {
     private boolean isReserved = false;
 
     public Book(final String ISBN,
+                final String title,
                 final String author,
                 final Category category) {
         this.ISBN = ISBN;
+        this.title = title;
         this.author = author;
         this.category = category;
     }
