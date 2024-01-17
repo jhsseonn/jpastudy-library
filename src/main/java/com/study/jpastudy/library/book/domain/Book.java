@@ -1,6 +1,7 @@
 package com.study.jpastudy.library.book.domain;
 
 import com.study.jpastudy.library.category.domain.Category;
+import com.study.jpastudy.library.loan.domain.Loan;
 import com.study.jpastudy.library.reservation.domain.Reservation;
 import com.study.jpastudy.library.reservation.domain.ReserveBook;
 import jakarta.persistence.Column;
@@ -62,5 +63,17 @@ public class Book {
         this.title = title;
         this.author = author;
         this.category = category;
+    }
+
+    public void updateIsReserved() {
+        this.isReserved = true;
+    }
+
+    public void updateIsLoaned() {
+        this.isLoaned = true;
+    }
+
+    public void updateIsReturned() {
+        this.isLoaned = false;
     }
 }

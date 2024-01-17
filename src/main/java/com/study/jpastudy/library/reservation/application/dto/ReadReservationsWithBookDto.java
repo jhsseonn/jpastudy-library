@@ -12,7 +12,7 @@ import java.util.List;
 
 public record ReadReservationsWithBookDto(BookDto bookDto, List<ReservationDto> reservationDtoList) {
 
-    public static ReadReservationsWithBookDto of(Book book, final List<Reservation> reservations) {
+    public static ReadReservationsWithBookDto of(final Book book, final List<Reservation> reservations) {
         final BookDto bookDto = BookDto.from(book);
         final List<ReservationDto> reservationDtos = reservations.stream()
                                                                  .map(ReservationDto::from)

@@ -1,5 +1,6 @@
 package com.study.jpastudy.library.member.domain;
 
+import com.study.jpastudy.library.loan.domain.Loan;
 import com.study.jpastudy.library.reservation.domain.Reservation;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -36,11 +37,11 @@ public class Member {
     @Column(nullable = false, columnDefinition = "text")
     private Address address;
 
-    @Column(nullable = false)
-    private int loanCount = 0;
-
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Reservation> reservedBooks = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Loan> loanedBooks = new ArrayList<>();
 
     public Member(final String name, final Address address){
         this.name = name;

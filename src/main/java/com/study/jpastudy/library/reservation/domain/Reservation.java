@@ -53,6 +53,7 @@ public class Reservation {
     private void updateReservationInfo(final Book book, final Member member){
         this.book = book;
         this.member = member;
+        book.updateIsReserved();
         book.getReservedMembers().add(this);
         member.getReservedBooks().add(this);
     }
