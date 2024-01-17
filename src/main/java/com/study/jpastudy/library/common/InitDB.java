@@ -2,6 +2,7 @@ package com.study.jpastudy.library.common;
 
 import com.study.jpastudy.library.book.domain.Book;
 import com.study.jpastudy.library.category.domain.Category;
+import com.study.jpastudy.library.loan.domain.Loan;
 import com.study.jpastudy.library.member.domain.Address;
 import com.study.jpastudy.library.member.domain.Member;
 import com.study.jpastudy.library.reservation.domain.Reservation;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -74,6 +76,26 @@ public class InitDB {
             Reservation reservation4 = createReservation(book1, member4);
             reservation4.updateReserveDate(LocalDateTime.now().plusDays(3));
             em.persist(reservation4);
+
+            Loan loan1 = createLoan(book2, member3);
+            loan1.updateLoanDate(LocalDate.now().minusDays(30));
+            loan1.updateLoanStatus();
+            em.persist(loan1);
+
+            Loan loan2 = createLoan(book3, member3);
+            loan2.updateLoanDate(LocalDate.now().minusMonths(2));
+            loan2.updateLoanStatus();
+            em.persist(loan2);
+
+            Loan loan3 = createLoan(book4, member3);
+            loan3.updateLoanDate(LocalDate.now().minusWeeks(6));
+            loan3.updateLoanStatus();
+            em.persist(loan3);
+
+            Loan loan4 = createLoan(book5, member3);
+            loan4.updateLoanDate(LocalDate.now().minusDays(3));
+            loan4.updateLoanStatus();
+            em.persist(loan4);
         }
 
         public void dbInit2() {
@@ -116,6 +138,10 @@ public class InitDB {
         private Reservation createReservation(final Book book,
                                               final Member member) {
             return new Reservation(book, member);
+        }
+
+        private Loan createLoan(final Book book, final Member member) {
+            return new Loan(book, member);
         }
     }
 }
