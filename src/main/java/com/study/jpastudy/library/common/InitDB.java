@@ -45,10 +45,10 @@ public class InitDB {
             Book book3 = createBook("9791165219529", "면접을 위한 CS 전공지식 노트", "주홍철", Category.COMPUTER_MOBILE);
             em.persist(book3);
 
-            Book book4 = createBook("9788966260959","클린코드 Clean Code", "로버트 C. 마틴/이해영/박재호", Category.COMPUTER_MOBILE);
+            Book book4 = createBook("9788966260959", "클린코드 Clean Code", "로버트 C. 마틴/이해영/박재호", Category.COMPUTER_MOBILE);
             em.persist(book4);
 
-            Book book5 = createBook("9788966261024","테스트 주도 개발", "켄트 백/김창준/강규영", Category.COMPUTER_MOBILE);
+            Book book5 = createBook("9788966261024", "테스트 주도 개발", "켄트 백/김창준/강규영", Category.COMPUTER_MOBILE);
             em.persist(book5);
         }
 

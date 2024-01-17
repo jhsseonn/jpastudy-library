@@ -17,8 +17,4 @@ public enum Category {
     Category(final String name) {
         this.name = name;
     }
-
-    public static Category from(final String name) {
-        return Category.valueOf(name);
-    }
 }
